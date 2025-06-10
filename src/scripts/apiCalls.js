@@ -4,13 +4,14 @@ class weatherAPI {
     async weatherCall(location, date1, date2) {
         try {
             if (!date1 && !date2) {
-                const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=8R9F9CZ8KCSN2SRRVVYA2NF49`)
-                const weatherData = await response.json();
-                return weatherData;
+                const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=8R9F9CZ8KCSN2SRRVVYA2NF49&include=alerts`);
+                const weatherData = await response.json();        
+                return weatherData
             }
             else if (date1 && !date2) {
                 const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${date1}?key=8R9F9CZ8KCSN2SRRVVYA2NF49`)
                 const weatherDataByDate = await response.json();
+                
                 return weatherDataByDate;
             } else if (date1 && date2) {
                 const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${date1}/${date2}?key=8R9F9CZ8KCSN2SRRVVYA2NF49`)
@@ -23,5 +24,16 @@ class weatherAPI {
             console.log(error);
         }
         };
+    
+
+    trimData(weatherData) {
+
+        const neededAttributes = {}
+        neededAttributes.address = weatherData.address;
+        neededAttributes.days = weatherData.days;
+        neededAttributes.alerts = weatherData.alerts;
+        return neededAttributes
+
+    }
     }
     export {weatherAPI};

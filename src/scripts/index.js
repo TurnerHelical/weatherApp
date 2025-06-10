@@ -1,7 +1,12 @@
 import "../CSS/style.css";
-import { weatherAPI } from "./apiCalls";
+import { weatherManager } from "./weatherManager"
 
-const weatherCall = new weatherAPI();
+const weather = new weatherManager();
 
-const weatherData = weatherCall.weatherCall(34231);
-console.log(weatherData);
+let test = weather.getData(34231);
+
+console.log(test);
+
+
+
+
