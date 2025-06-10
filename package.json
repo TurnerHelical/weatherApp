@@ -1,0 +1,35 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "An app to make use of the Visual Crossing API to track and display weather",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TurnerHelical/weatherApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TurnerHelical/weatherApp/issues"
+  },
+  "homepage": "https://github.com/TurnerHelical/weatherApp#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "prettier": "3.5.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
