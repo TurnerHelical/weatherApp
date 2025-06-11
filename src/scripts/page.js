@@ -19,12 +19,14 @@ class PageAction {
             } else if(!formObj.location){
                 console.log('A location is required.')
             } else if (formObj.location && formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
-                await api.getData(formObj.location, formObj.date1);
+                const info = await api.getData(formObj.location, formObj.date1);
+                console.log(info)
             } else if(formObj.location && !formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
                 const info = await api.getData(formObj.location);
                 console.log(info);
             } else {
-                await api.getData(formObj.location, formObj.dateRange1, formObj.dateRange2);
+                const info = await api.getData(formObj.location, formObj.dateRange1, formObj.dateRange2);
+                console.log(info)
             }
         } catch(error) {
             console.log(error);
