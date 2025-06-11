@@ -1,39 +1,46 @@
 import { Dom } from "./utils";
+import { weatherManager } from "./weatherManager";
 
+const api = new weatherManager();
 const page = new Dom();
 
 class PageAction {
 
-    formSubmit() {
-        
+    async formSubmit(e) {
+        e.preventDefault();
         const form = page.findElement('#userForm');
         const formData = new FormData(form);
         const formObj = Object.fromEntries(formData.entries());
-        console.log(formObj);
+        
+        
+        try{
+            if (!formObj.location && !formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
+                console.log('Please enter some info and try again');
+            } else if(!formObj.location){
+                console.log('A location is required.')
+            } else if (formObj.location && formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
+                await api.getData(formObj.location, formObj.date1);
+            } else if(formObj.location && !formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
+                const info = await api.getData(formObj.location);
+                console.log(info);
+            } else {
+                await api.getData(formObj.location, formObj.dateRange1, formObj.dateRange2);
+            }
+        } catch(error) {
+            console.log(error);
+        }
+        
+        
         
                     
         
     }
     addListener() {
         const form = page.findElement('#userForm');
-        form.addEventListener('submit', () => {
-            this.formSubmit();
+        form.addEventListener('submit', (e) => {
+            this.formSubmit(e);
         });
     }
-    //     const location = page.findElement('#location');
-    //     const date1 = page.findElement('#date1')
-    //     const dateRange1 = page.findElement('#dateRange1');
-    //     const dateRange2 = page.findElement('#dateRange2');
-    //     if (location.value && !date1 && !dateRange1 && !dateRange2) {
-
-    //     }
-        
-        
-        
-    //     else (location.value == '' && date1.value == '' && dateRange1.value == '' && dateRange2.value == '' ) {
-    //         console.log('Please enter some information')
-    //     }
-    // }
     
 }
 export {PageAction};
