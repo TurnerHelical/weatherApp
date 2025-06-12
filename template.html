@@ -9,28 +9,21 @@
     <header>
       <h1>Weather Report</h1>
     </header>
+    <div id="imgCtr">
+        
+    </div>
     <div id="formCtr">
     <form id="userForm">
       <div id="locationInput">
         <input type="text" id="location" name="location" placeholder="City or Zip to look up the weather for"/>
       </div>
 
-      <div id="date1Input">
-        <label for="date1"
-          >Search for weather on a specific day (optional):
-        </label>
-        <br>
-        <input type="date" id="date1" name="date1" />
+      <div id="dateCtr">
+        <p>If you want to search by historical data, select an option below.</p>
+        <button id="date" class="dateBtn">By Date</button>
+        <button id="dateRange" class="dateBtn">By Range of Dates</button>
       </div>
-
-      <div id="dateRangeInput">
-        <label for="dateRange"
-          >See the weather between these dates (optional):
-        </label>
-        <br>
-        <input type="date" id="dateRange1" name="dateRange1" />
-        <input type="date" id="dateRange2" name="dateRange2" />
-      </div>
+      
 
       <div id="buttonCtr">
         <button id="formSubmit">Submit</button>

@@ -1,0 +1,17 @@
+<div id="date1Input">
+        <label for="date1"
+          >Search for weather on a specific day (optional):
+        </label>
+        <br>
+        <input type="date" id="date1" name="date1" />
+      </div>
+
+
+      <div id="dateRangeInput">
+        <label for="dateRange"
+          >See the weather between these dates (optional):
+        </label>
+        <br>
+        <input type="date" id="dateRange1" name="dateRange1" />
+        <input type="date" id="dateRange2" name="dateRange2" />
+      </div>

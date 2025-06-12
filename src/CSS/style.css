@@ -28,16 +28,26 @@ h1 {
     display: flex;
     justify-content: center;
     width: 100%;
+    height: 300px;
+}
+
+#imgCtr {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 form {
     display: grid;
-    grid-template: 2fr 2fr 1fr / 2fr 1fr 2fr;
+    grid-template: 1fr 1fr 1fr / 1fr;
     align-items: center;
     justify-content: center;
+    min-width: 600px;
     max-width: 800px;
-    gap: 40px;
     border: black solid 1px;
+    box-shadow: 1px 2px 4px black ;
+    margin-top: 10px;
 }
 
 #locationInput {
@@ -48,23 +58,41 @@ form {
 
 #locationInput input {
     width: 400px;
+    text-align: center;
 }
 
-#date1Input {
-    grid-area: 2 / 1 / 3 / 2;
-    text-align: center;
-    white-space: nowrap;
+#dateCtr {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
     align-items: center;
-    padding: 5px 10px;
+    justify-content: center;
+    text-align: center;
+    padding:0px 30px;
+    gap: 10px;
+
 }
 
-#dateRangeInput {
-    grid-area: 2 / 3 / 3 / 4;
-    text-align: center;
-    white-space: nowrap;
-    align-items: center;
-    padding: 5px 10px;
+#dateCtr p {
+    grid-area: 1 / 1 / 2 / 3;
+    
 }
+button {
+    max-width: 150px;
+    min-width: 150px;
+    justify-self: center;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    background-color: #2D4B5E;
+    color: #E1E9EB;
+    box-shadow: 1px 1px 4px black;
+}
+
+
+button:hover {
+    box-shadow: none;;
+}
+
 
 #buttonCtr {
     grid-area: 3 / 1 / 4 / 4 ;
@@ -73,5 +101,6 @@ form {
 }
 
 #formSubmit {
-    padding: 8px 50px;
+    font-size: 24px;
+    text-align: center;
 }
