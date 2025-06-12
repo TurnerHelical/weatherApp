@@ -3,38 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather Report</title>
   </head>
   <body>
     <header>
       <h1>Weather Report</h1>
     </header>
+    <div id="formCtr">
     <form id="userForm">
-      <div>
-        <label for="location"
-          >Enter the city you want to check the weather for:
-        </label>
-        <input type="text" id="location" name="location" />
+      <div id="locationInput">
+        <input type="text" id="location" name="location" placeholder="City or Zip to look up the weather for"/>
       </div>
 
-      <div>
+      <div id="date1Input">
         <label for="date1"
-          >Enter date to see weather for that day (optional):
+          >Search for weather on a specific day (optional):
         </label>
+        <br>
         <input type="date" id="date1" name="date1" />
       </div>
 
-      <div>
+      <div id="dateRangeInput">
         <label for="dateRange"
-          >Enter two dates to see the weather during that time (optional):
+          >See the weather between these dates (optional):
         </label>
+        <br>
         <input type="date" id="dateRange1" name="dateRange1" />
         <input type="date" id="dateRange2" name="dateRange2" />
       </div>
 
-      <div>
+      <div id="buttonCtr">
         <button id="formSubmit">Submit</button>
       </div>
     </form>
+</div>
   </body>
 </html>
