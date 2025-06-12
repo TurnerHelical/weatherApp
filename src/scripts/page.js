@@ -40,8 +40,28 @@ class PageAction {
     addListener() {
         const form = page.findElement('#userForm');
         form.addEventListener('submit', (e) => {
+            if (e.target.id === 'formSubmit') {
             this.formSubmit(e);
+            }
         });
+    }
+
+    dateChoice() {
+        const ctr = page.findElement('#dateCtr');
+        ctr.addEventListener('click', (e) => {
+            e.preventDefault();
+            const choice = e.target.id
+            this.changeDateCtr(choice);
+        });
+    }
+
+    changeDateCtr(choice) {
+        
+        if (choice === 'date') {
+            console.log('test');
+        } else if (choice === 'dateRange') {
+            console.log('test2')
+        }
     }
     
 }

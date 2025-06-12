@@ -7,7 +7,7 @@ const weather = new weatherManager();
 const page = new PageAction();
 
 page.addListener();
-
+page.dateChoice();
 
 
 
