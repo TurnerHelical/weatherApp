@@ -18,6 +18,11 @@ class Dom {
     let el = this.findElement(selector);
     el.innerHTML = "";
   };
+
+  removeElement = (selector) => {
+    let el = this.findElement(selector);
+    el.remove();
+  }
   editAttr = (selector, attr, attrVal) => {
     let el = this.findElement(selector);
     el.setAttribute(attr, attrVal);

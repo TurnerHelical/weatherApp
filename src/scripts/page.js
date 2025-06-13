@@ -58,10 +58,22 @@ class PageAction {
     changeDateCtr(choice) {
         
         if (choice === 'date') {
-            console.log('test');
+            page.removeElement('#dateCtr');
+            page.clearContent('#dynamicDateInput');
+            const singleDate = page.createAndAppend('#dynamicDateInput', 'div', 'id', 'date1Input');
+            singleDate.innerHTML = `
+                <label for="date1" >Search for weather on a specific day (optional):</label><br>
+                <input type="date" id="date1" name="date1" />`
+            
         } else if (choice === 'dateRange') {
-            console.log('test2')
-        }
+            page.removeElement('#dateCtr');
+            page.clearContent('#dynamicDateInput');
+            const dateRange = page.createAndAppend('#dynamicDateInput', 'div', 'id', 'dateRangeInput');
+            dateRange.innerHTML = `
+                <label for="dateRange">See the weather between these dates (Seven days max):</label><br>
+                <input type="date" id="dateRange1" name="dateRange1" />
+                <input type="date" id="dateRange2" name="dateRange2" />
+        `}
     }
     
 }

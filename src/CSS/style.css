@@ -76,6 +76,15 @@ form {
     grid-area: 1 / 1 / 2 / 3;
     
 }
+
+#date1Input{
+    text-align: center;
+}
+
+#dateRangeInput {
+    text-align: center;
+}
+
 button {
     max-width: 150px;
     min-width: 150px;
