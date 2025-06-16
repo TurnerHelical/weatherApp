@@ -36,6 +36,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
+}
+
+#imgCtr img {
+    max-height: 400px;
+    max-width: auto;
 }
 
 form {
@@ -47,7 +53,7 @@ form {
     max-width: 800px;
     border: black solid 1px;
     box-shadow: 1px 2px 4px black ;
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 #locationInput {

@@ -11,7 +11,7 @@ class PageAction {
         const form = page.findElement('#userForm');
         const formData = new FormData(form);
         const formObj = Object.fromEntries(formData.entries());
-        console.log(formObj);
+        
         
         
         try{
