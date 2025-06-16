@@ -11,6 +11,7 @@ class PageAction {
         const form = page.findElement('#userForm');
         const formData = new FormData(form);
         const formObj = Object.fromEntries(formData.entries());
+        console.log(formObj);
         
         
         try{
@@ -40,9 +41,8 @@ class PageAction {
     addListener() {
         const form = page.findElement('#userForm');
         form.addEventListener('submit', (e) => {
-            if (e.target.id === 'formSubmit') {
             this.formSubmit(e);
-            }
+            
         });
     }
 
