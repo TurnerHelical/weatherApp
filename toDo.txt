@@ -1,0 +1,7 @@
+Display the data on the page
+if only a single date only show the specified day 
+if date range selected only allow a max of 7 days to display and give an error message to the user saying a max of 7
+if no dates selected, and only location, display the current day and the next week's forecast and weather
+create a card for each day and include conditions, max and min temp, max and min feel like temp, current temp and feels like temp, humidity, precipitation probablity, sunrise, sunset,
+uv index, wind direction and wind speed, wind gusts
+make the cards clickable and when clicked expand and show scrollable hourly data, only show condiitons, current temp, feels like, precipitation prob, wind direction and wind speed

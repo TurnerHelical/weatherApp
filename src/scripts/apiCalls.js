@@ -30,7 +30,7 @@ class weatherAPI {
     trimData(weatherData) {
 
         const neededAttributes = {}
-        neededAttributes.address = weatherData.address;
+        neededAttributes.address = weatherData.resolvedAddress;
         neededAttributes.days = weatherData.days;
         neededAttributes.alerts = weatherData.alerts;
         return neededAttributes

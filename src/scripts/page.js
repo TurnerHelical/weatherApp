@@ -75,6 +75,9 @@ class PageAction {
                 <input type="date" id="dateRange2" name="dateRange2" />
         `}
     }
+    displayData(info) {
+        
+    }
     
 }
 export {PageAction};

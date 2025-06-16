@@ -31,7 +31,7 @@ h1 {
     height: 300px;
 }
 
-#imgCtr {
+#dataCtr {
     height: 400px;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@ h1 {
     margin-top: 25px;
 }
 
-#imgCtr img {
+#dataCtr img {
     max-height: 400px;
     max-width: auto;
 }
