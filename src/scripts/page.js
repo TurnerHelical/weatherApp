@@ -4,6 +4,7 @@ import { weatherManager } from "./weatherManager";
 const api = new weatherManager();
 const page = new Dom();
 
+
 class PageAction {
 
     async formSubmit(e) {
@@ -21,12 +22,16 @@ class PageAction {
                 console.log('A location is required.');
             } else if (formObj.location && formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
                 const info = await api.getData(formObj.location, formObj.date1);
-                console.log(info);
+                console.log(info)
+                this.displayData(info);
+                
+
             } else if(formObj.location && !formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
                 const info = await api.getData(formObj.location);
                 console.log(info);
             } else {
                 const info = await api.getData(formObj.location, formObj.dateRange1, formObj.dateRange2);
+                this.displayData(info);
                 console.log(info);
             }
         } catch(error) {
@@ -76,7 +81,14 @@ class PageAction {
         `}
     }
     displayData(info) {
-        
+        page.clearContent('#dataCtr');
+        page.createAndAppend('#dataCtr', 'div', 'id', 'cardCtr')
+        for (const day of info.days) {
+            let card = page.createAndAppend('#cardCtr', 'div', 'class', 'card');
+            card.innerHTML = `
+            `
+            
+        }
     }
     
 }

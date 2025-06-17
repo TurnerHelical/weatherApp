@@ -44,6 +44,34 @@ h1 {
     max-width: auto;
 }
 
+#cardCtr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 150px;
+    border: 1px black solid;
+    box-shadow: 1px 2px 4px black ; ;
+}
+
+.cardImg {
+    height: 100px;
+    width: 100px;
+}
+
+.precipImg {
+    height: 50px;
+    width: 50px;
+}
+
 form {
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr;
