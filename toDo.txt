@@ -4,5 +4,5 @@ if date range selected only allow a max of 7 days to display and give an error m
 if no dates selected, and only location, display the current day and the next week's forecast and weather
 create a card for each day and include conditions, max and min temp, current feel like temp, current temp, precipitation probablity
 make the cards clickable and when clicked expand and show more in depth info description, feels like max min and current, max min and current temp, 
-humidity, precipitation prob, sunrise and sunset, uv index, wind direction, wind speed, and highest gust, 
-scrollable hourly data, only show condiitons, current temp, feels like, precipitation prob, wind direction and wind speed
+humidity, precipitation prob, sunrise and sunset, uv index, wind direction, wind speed, 
+scrollable hourly data, only show condition image, current temp, feels like, precipitation prob
