@@ -37,5 +37,7 @@ class Dom {
       element.classList.toggle(className);
     });
   };
+  
+
 }
 export { Dom };
