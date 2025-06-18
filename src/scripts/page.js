@@ -22,17 +22,15 @@ class PageAction {
                 console.log('A location is required.');
             } else if (formObj.location && formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
                 const info = await api.getData(formObj.location, formObj.date1);
-                console.log(info)
                 this.displayData(info);
-                this.expandWeather(info);
 
             } else if(formObj.location && !formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
                 const info = await api.getData(formObj.location);
-                console.log(info);
+                this.displayData(info);
             } else {
                 const info = await api.getData(formObj.location, formObj.dateRange1, formObj.dateRange2);
                 this.displayData(info);
-                console.log(info);
+                
             }
         } catch(error) {
             console.log(error);
@@ -82,19 +80,22 @@ class PageAction {
     }
     displayData(info) {
         page.clearContent('#dataCtr');
-        page.createAndAppend('#dataCtr', 'div', 'id', 'cardCtr')
-        for (const day of info.days) {
+        page.createAndAppend('#dataCtr', 'div', 'id', 'cardCtr');
+        
+        let i = 0;
+        while (i < 7) {
+            i++;
             let card = page.createAndAppend('#cardCtr', 'div', 'class', 'card');
             card.innerHTML = `
           <div class="card">
-          <img src="#" alt="" class="cardImg" />
+          <img src="/home/hunter/repos/weatherApp/src/images/weatherIcons${info.days[i].icon}.svg" alt="" class="cardImg" />
           <div class="temps">
-            <p>${day.tempmin}&deg;/ ${day.tempmax}&deg;</p>
-            <p>Feels Like ${day.feelslike}&deg;</p>
+            <p>${info.days[i].tempmin}&deg;/ ${info.days[i].tempmax}&deg;</p>
+            <p>Feels Like ${info.days[i].feelslike}&deg;</p>
           </div>
           <div class="precipProb">
             <img src="#" alt="" class="precipImg" />
-            <p>${day.precipprob}%</p>
+            <p>${info.days[i].precipprob}%</p>
           </div>
         </div>
             `
@@ -103,32 +104,6 @@ class PageAction {
     }
 
     
-
-    expandWeather(day) {
-        const table = page.createAndAppend('#expandedWeather', 'table', 'id', 'expandInfo');
-        table.innerHTML = `
-        <tr>
-          <th>Min / Max Temp</th>
-          <th>Feels Like Min / Max</th>
-          <th>Humidity</th>
-          <th>Precip Prob</th>
-          <th>Sunrise / Sunset</th>
-          <th>UV Index</th>
-          <th>Wind Direction</th>
-          <th>Wind Speed</th>
-        </tr>
-        <tr>
-          <td>${day.mintemp}&deg; / ${day.maxtemp}&deg;</td>
-          <td>${day.feelslikemin}&deg; / ${day.feelslikemax}&deg;</td>
-          <td>${day.humidity}%</td>
-          <td>${day.precipprob}%</td>
-          <td>${} / 4:00</td>
-          <td>9</td>
-          <td>SSE</td>
-          <td>25</td>
-        </tr>
-        `
-    }
     
 }
 export {PageAction};
