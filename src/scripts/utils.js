@@ -37,5 +37,9 @@ class Dom {
       element.classList.toggle(className);
     });
   };
+  convertTime = (time) => {
+    if (time === 0)
+  }
+
 }
 export { Dom };

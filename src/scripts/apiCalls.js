@@ -1,3 +1,4 @@
+
 class weatherAPI {
 
     //Call the API and return the response, include a location, and optionally a date1 and date2
@@ -5,8 +6,7 @@ class weatherAPI {
         try {
             if (!date1 && !date2) {
                 const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=8R9F9CZ8KCSN2SRRVVYA2NF49&include=alerts`);
-                const weatherData = await response.json();
-                console.log(weatherData);        
+                const weatherData = await response.json();        
                 return weatherData
             }
             else if (date1 && !date2) {

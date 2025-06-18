@@ -12,7 +12,7 @@ class PageAction {
         const form = page.findElement('#userForm');
         const formData = new FormData(form);
         const formObj = Object.fromEntries(formData.entries());
-        
+        page.toggleClass('#formCtr', 'disable');
         
         
         try{
@@ -24,7 +24,7 @@ class PageAction {
                 const info = await api.getData(formObj.location, formObj.date1);
                 console.log(info)
                 this.displayData(info);
-                
+                this.expandWeather(info);
 
             } else if(formObj.location && !formObj.date1 && !formObj.dateRange1 && !formObj.dateRange2) {
                 const info = await api.getData(formObj.location);
@@ -86,9 +86,48 @@ class PageAction {
         for (const day of info.days) {
             let card = page.createAndAppend('#cardCtr', 'div', 'class', 'card');
             card.innerHTML = `
+          <div class="card">
+          <img src="#" alt="" class="cardImg" />
+          <div class="temps">
+            <p>${day.tempmin}&deg;/ ${day.tempmax}&deg;</p>
+            <p>Feels Like ${day.feelslike}&deg;</p>
+          </div>
+          <div class="precipProb">
+            <img src="#" alt="" class="precipImg" />
+            <p>${day.precipprob}%</p>
+          </div>
+        </div>
             `
             
         }
+    }
+
+    
+
+    expandWeather(day) {
+        const table = page.createAndAppend('#expandedWeather', 'table', 'id', 'expandInfo');
+        table.innerHTML = `
+        <tr>
+          <th>Min / Max Temp</th>
+          <th>Feels Like Min / Max</th>
+          <th>Humidity</th>
+          <th>Precip Prob</th>
+          <th>Sunrise / Sunset</th>
+          <th>UV Index</th>
+          <th>Wind Direction</th>
+          <th>Wind Speed</th>
+        </tr>
+        <tr>
+          <td>${day.mintemp}&deg; / ${day.maxtemp}&deg;</td>
+          <td>${day.feelslikemin}&deg; / ${day.feelslikemax}&deg;</td>
+          <td>${day.humidity}%</td>
+          <td>${day.precipprob}%</td>
+          <td>${} / 4:00</td>
+          <td>9</td>
+          <td>SSE</td>
+          <td>25</td>
+        </tr>
+        `
     }
     
 }
